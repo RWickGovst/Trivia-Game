@@ -1,4 +1,22 @@
 body{
     background-image: url(MV-Agusta-F4-RC-2015-1680x1050-008.jpg);
-    
+}
+.container{
+    width: 600px;
+    height: auto;
+    margin-top: 100px;
+    background-color: tan;
+    opacity: .6;
+    border: solid 2px brown;
+}
+#but{
+    opacity: 1;
+    border: solid 1px black;
+}
+#countdown{
+    color:white;
+}
+#time-left{
+    color: white;
+    border: solid 1px black;
 }
