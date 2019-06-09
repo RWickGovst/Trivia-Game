@@ -19,56 +19,49 @@ correctAnswer: 'c'
 correctAnswer: 'a'
     },
 ];
-// need to start a game timer, counting down
-function count() {
-    var time = 75;
-    time--;
-  
-    // Get the current time, pass that into the timeConverter function,
-    //       and save the result in a variable.
-    var converted = timeConverter(time);
-    console.log(converted);
-  
-    // DONE: Use the variable we just created to show the converted time in the "display" div.
-    $("#time-left").text(converted);
+
+
+// create a game countdown timer
+var number = 100;
+var intervalId;
+
+function run() {
+    clearInterval(intervalId);
+    intervalId = setInterval(decrement, 1000);
   }
-  function timeConverter(t) {
+  function decrement() {
+  number--;
   
-    var minutes = Math.floor(t / 60);
-    var seconds = 60;
-    
-    if (seconds < 10) {
-      seconds = "0" + seconds;
-    }
-  
-    if (minutes === 0) {
-      minutes = "00";
-    }
-    else if (minutes < 10) {
-      minutes = "0" + minutes;
-    }
-    
-    return minutes + ":" + seconds;
+  $("#show-number").html("<h2>" + number + "</h2>");
+  if (number === 0) {
+
+    //  ...run the stop function.
+    stop();
+
+    //  Alert the user that time is up.
+    alert("Time Up!");
   }
+}
+$("#start").on("click", run);
 // while timer is > 00
-  for(var i=0; i<trivia.length;i++){
+//   for(var i=0; i<trivia.length;i++){
     // grab question and answer list one at a time
-    function generateQuiz(question, quizContainer, results, submitButton){
+   
 // display question and then possible answers in a table format?
-        function showQuestions(question, quizContainer){
-            // code will go here
-        }
-    // check answer
-        function showResult(question, quizContainer, results){
-            // code will go here
-        }
+       
         // keep totals of right and wrong answers
 
 //  call function to start display
-startButton.onclick = function(event){
-    function count();
+// $(document).ready(function() {
+
+    
+
+        
+        // generateQuiz();
+    
+
+//   });
 // function generateQuiz(question, answer, correctAnswer);
-}
 // click to answer question
 // submitButton.onclick = function(question, ){
     // function showResult();
