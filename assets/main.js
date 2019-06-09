@@ -42,6 +42,14 @@ function run() {
     alert("Time Up!");
   }
 }
+function stop() {
+
+    //  Clears our intervalId
+    //  We just pass the name of the interval
+    //  to the clearInterval function.
+    clearInterval(intervalId);
+  }
+
 $("#start").on("click", run);
 // while timer is > 00
 //   for(var i=0; i<trivia.length;i++){
