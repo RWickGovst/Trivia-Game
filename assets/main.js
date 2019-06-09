@@ -20,7 +20,6 @@ correctAnswer: 'a'
     },
 ];
 
-
 // create a game countdown timer
 var number = 100;
 var intervalId;
@@ -49,23 +48,6 @@ $("#answers").text(trivia[0].answers.a);
 $("#answersTwo").text(trivia[0].answers.b);
 $("#answersThree").text(trivia[0].answers.c);
 
-    // var createRow = function(trivia) {
-        // Create a new table row element
-        // var tRow = $("<tr>");
-  
-        // Methods run on jQuery selectors return the selector they we run on
-        
-        // var answerOne = $("<tr>").text(trivia.answers.a);
-        // var answerTwo= $("<tr>").text(trivia.answers.b);
-        // var answerThree = $("<tr>").text(trivia.answers.c);
-        
-        // Append the newly created table data to the table row
-        
-        // Append the table row to the table body
-        // $("tbody").append(tRow);
-    //   };
-  
-//   }
 }
 function stop() {
 

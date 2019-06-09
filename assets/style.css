@@ -33,3 +33,10 @@ body{
     color: darkmagenta;
     font-size: 25px;
 }
+#q{
+    width: 500px;
+    height: auto;
+}
+.btn-primary{
+    border: solid 1px black;
+}
