@@ -15,6 +15,7 @@ body{
     background-color: tan;
     opacity: .8;
     border: solid 2px brown;
+    border-radius: 5px;
 }
 #start{
     opacity: 1;
@@ -23,10 +24,10 @@ body{
 #show-number{
     width: 60px;
     align-content: center;
-    line-height: 30px;
+    line-height: 46px;
     font-size: 18px;
     color:white;
-    border: solid 1px black;
+    /* border: solid 1px black; */
 }
 .row{
     line-height: 30px;

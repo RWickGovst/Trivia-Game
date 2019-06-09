@@ -2,31 +2,37 @@
 var trivia = [
     {
     question: "Why did the cow jump over the moon?",
-    answers: {a: 'This is impossible',b: 'The butcher was chasing it',c: 'The cow is fully cross-fit'
+    answers: ['This is impossible','The butcher was chasing it', 'The cow is fully cross-fit'],
+    correctAnswer: 'The cow is fully cross-fit'
 },
-correctAnswer: 'c'
-    },
     {
         question: "What is the meaning of life?",
-        answers: {a: 'To ride',b: 'To experience',c: 'To feel'
-    },
-    correctAnswer: 'a'
+        answers:['To ride','To experience','To feel'], 
+        correctAnswer: 'To ride'
     },
     {
     question: "Why do we live in Illinois?",
-    answers: {a: 'The cold winters',b: 'The high taxes',c: 'The crooked politicians'
-},
-correctAnswer: 'a'
-    },
+    answers:  ['The cold winters','The high taxes', 'The crooked politicians'],
+    correctAnswer: 'The cold winters'
+}
+
 ];
 // $(document).ready(function() {
 // create a game countdown timer
 var number = 100;
 var intervalId;
+var currentQ = 0;
+var right = 0;
+var wrong = 0;
 
 function run() {
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000);
+    console.log(trivia[currentQ]);
+    $("#quiz-area").html("<h2>" +trivia[currentQ].question +"</h2>");
+    for(var i=0; i<trivia[currentQ].answers.length; i++){
+        $("#quiz-area").append("<button class= 'answer-button' id='button' data-name ='" +trivia[currentQ].answers[i]+ "'>" +trivia[currentQ].answers[i] +"</button>");
+    }
   }
   function decrement() {
   number--;
@@ -55,6 +61,56 @@ $("#answers").text(trivia[0].answers.a);
 $("#answersTwo").text(trivia[0].answers.b);
 $("#answersThree").text(trivia[0].answers.c);
 
+$(".answer-button").on("click", function(e){
+    console.log("on click answer button");
+    $(".answer-button").addClass("active");
+    if($(e.target).attr("data-name") === trivia[currentQ].correctAnswer){
+        correctAnswer();
+    }
+    else{
+        wrongAnswer();
+    }
+});
+function correctAnswer(){
+    clearInterval(intervalId);
+    right++;
+    $("#quiz-area").html("<h2>Correct: </h2>");
+    if(currentQ === trivia.length-1){
+        setTimeout(results, 3000);
+    }
+    else{
+        setInterval(nextQuestion, 3000);
+    }
+}
+function wrongAnswer(){
+    clearInterval(intervalId);
+    number = 100;
+    wrong++;
+    $("#quiz-area").html("<h2>Incorrect: </h2>");
+    console.log(currentQ);
+    console.log(trivia.length-1);
+    
+    if(currentQ === trivia.length-1){
+        
+        setTimeout(results, 3000);
+    }
+    
+    else{
+        setInterval(nextQuestion, 3000);
+    }
+}
+function nextQuestion(){
+    number = 100;
+    $("#show-number").html("<h2>" + number + "</h2>");
+    currentQ++;
+    run();
+}
+function results(){
+    $("#quiz-area").html("<h3>Here are the results: </h3>");
+    $("#quiz-area").append("<h3>Correct " + right + "</h3>");
+    $("#quiz-area").append("<h3>Wrong " + wrong + "</h3>");
+}
+
 
 // grab question and answer list one at a time
    
@@ -62,6 +118,7 @@ $("#answersThree").text(trivia[0].answers.c);
 // click to answer question
 // submitButton.onclick = function(question, ){
     // function showResult();
+    // display result with another button to go to the next question
 // }
 
 // onclick submit button - checks right or wrong
