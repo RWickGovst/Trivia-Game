@@ -1,8 +1,8 @@
 // create array of question objects
 var trivia = [
     {
-    question: "Why did the cat jump over the moon?",
-    answers: {a: 'This is impossible',b: 'The dog was chasing it',c: 'The cat is fully cross-fit'
+    question: "Why did the cow jump over the moon?",
+    answers: {a: 'This is impossible',b: 'The butcher was chasing it',c: 'The cow is fully cross-fit'
 },
 correctAnswer: 'c'
     },

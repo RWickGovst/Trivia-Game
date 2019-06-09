@@ -6,7 +6,7 @@ body{
     height: 600px;
     margin-top: 100px;
     background-color: tan;
-    opacity: .6;
+    opacity: .8;
     border: solid 2px brown;
 }
 #start{
@@ -20,4 +20,16 @@ body{
     font-size: 18px;
     color:white;
     border: solid 1px black;
+}
+.row{
+    line-height: 30px;
+    opacity:1;
+    color: darkgreen;
+    font-size: 25px;
+}
+#question{
+    line-height: 30px;
+    opacity:1;
+    color: darkmagenta;
+    font-size: 25px;
 }
